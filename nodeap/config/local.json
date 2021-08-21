@@ -1,0 +1,12 @@
+{
+    "drachtio": {
+      "host": "127.0.0.1",
+      "port": 9022,
+      "secret": "cymru"
+    },
+    "rtpengine": {
+      "host": "127.0.0.1",
+      "port": 22222
+    },
+    "destination": "vrmi.link"
+  }
