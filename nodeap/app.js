@@ -215,7 +215,7 @@ class CallSession extends Emitter {
 
 	srf.invite((req, res) => {
 		const uri = parseUri(req.uri);
-		const dest = `sip:${uri.user}@${config.get('destination')}`;
+		const dest = req.get('contact').substr(1).split(';')[0];
 		const from = req.getParsedHeader('From');
 		const details = {
 			'call-id': req.get('Call-Id'),
@@ -223,7 +223,7 @@ class CallSession extends Emitter {
 		};
 
 		console.log(`got invite, sending to ${dest}, ${details}`);
-
+		console.log(dest);
 		rtpengine.offer(locRtp, Object.assign(details, { 'sdp': req.body, 'record call': 'yes' }))
 			.then((rtpResponse) => {
 				console.log(`got response from rtpengine: ${JSON.stringify(rtpResponse)}`);
@@ -243,7 +243,7 @@ class CallSession extends Emitter {
 			})
 			.catch((err) => {
 				console.error(`Error proxying call with media: ${err}: ${err.stack}`);
-			});
+			}); 
 	});
 
 
