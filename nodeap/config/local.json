@@ -6,7 +6,7 @@
     },
     "rtpengine": {
       "host": "127.0.0.1",
-      "port": 22222
+      "port": 2223
     },
     "destination": "vrmi.link"
   }
