@@ -1,0 +1,2 @@
+FROM drachtio/drachtio-server
+COPY drachtio.conf.xml /etc/drachtio.conf.xml

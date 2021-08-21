@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  drachitio_server:
+    container_name: drachitio_server
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-drachitio
+    ports:
+      - "5060:5060"
+      - "9022:9022"
+      - "9021:9021"
+
+  rtp_engine:
+    container_name: rtpengine
+    image: drachtio/rtpengine
+    ports:
+      - "22222:22222"
+      - "23000-24000:23000-24000"
+
+
+
+  postdb:
+    container_name: postdb
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+
