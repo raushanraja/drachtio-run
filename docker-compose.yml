@@ -11,22 +11,11 @@ services:
       - "9022:9022"
       - "9021:9021"
 
-  rtp_engine:
-    container_name: rtpengine
-    image: drachtio/rtpengine
-    ports:
-      - "22222:22222"
-      - "23000-24000:23000-24000"
-
-
-
-  postdb:
-    container_name: postdb
-    image: postgres
+  rediss:
+    container_name: rediss
+    image: redis
     restart: always
-    environment:
-      POSTGRES_PASSWORD: password
     ports:
-      - "5432:5432"
+      - "6379:6379"
 
 
